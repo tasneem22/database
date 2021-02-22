@@ -1,16 +1,38 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+import psycopg2
+from faker import Faker
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    print("Database is going to be opened")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    con = psycopg2.connect(database="customers", user="postgres", password="postgres", host="127.0.0.1", port="5433")
+    print("Database opened successfully")
+    cur = con.cursor()
+    cur.execute('''CREATE TABLE CUSTOMER
+       (ID INT PRIMARY KEY    NOT NULL,
+       Name           TEXT    NOT NULL,
+       Address        TEXT    NOT NULL,
+       Age             INT  NOT NULL,
+       review        TEXT);''')
+    print("Table created successfully")
+    fake = Faker()
+    for i in range(100000):
+        cur.execute("INSERT INTO CUSTOMER (ID,Name,Address,Age,review) VALUES ('" + str(
+            i) + "','" + fake.name() + "','" + fake.address() + "','" + str(fake.random_int(18, 100)) + "','" + fake.text() + "')")
+        con.commit()
+
+    cur = con.cursor()
+    cur.execute('''CREATE TABLE CUSTOMERS
+       (ID INT PRIMARY KEY    NOT NULL,
+       Name           TEXT    NOT NULL,
+       Address        TEXT    NOT NULL,
+       Age             INT  NOT NULL,
+       review        TEXT);''')
+    print("Table created successfully")
+    fake = Faker()
+    for i in range(100000):
+        cur.execute("INSERT INTO CUSTOMERS (ID,Name,Address,Age,review) VALUES ('" + str(
+            i) + "','" + fake.name() + "','" + fake.address() + "','" + str(fake.random_int(18, 100)) + "','" + fake.text() + "')")
+        con.commit()
