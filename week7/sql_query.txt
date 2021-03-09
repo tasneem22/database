@@ -1,1 +1,35 @@
 
+CREATE OR REPLACE FUNCTION Customer_paging(startt int, endd int)
+  RETURNS TABLE(customer_id integer, store_id smallint , first_name VARCHAR(45), last_name VARCHAR(45) ,
+			  email  VARCHAR(50), address_id smallint , activebool boolean, create_date date, last_update timestamp without time zone , active integer) AS
+$$
+BEGIN
+ 
+ RETURN QUERY
+	SELECT *
+ 	FROM customer
+ 	WHERE customer.customer_id >= startt and customer.customer_id < endd
+    Order BY address_id;
+ 
+ if startt > endd then
+	 	raise exception 'start is more than the end value, WRONG INTERVAL';
+		
+ ELSIF startt < 0 then
+ 	 	raise exception 'start is negative';
+		
+ elseif endd > 600 then
+ 	 raise exception 'out of boundries';
+
+	END IF;
+END; $$
+
+LANGUAGE plpgsql;
+
+
+select Customer_paging(10,40);
+
+select Customer_paging(-10,40);
+
+select Customer_paging(10,601);
+
+select Customer_paging(40,10);
