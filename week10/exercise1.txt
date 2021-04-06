@@ -1,0 +1,8 @@
+Question 1
+they don't show the same results, the first shows the old table,
+while the second shows the new one after editing it, 
+and this is because we haven't committed the changes we did in the second terminal
+
+
+
+Question 2
