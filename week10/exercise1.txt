@@ -1,3 +1,4 @@
+READ COMMITTED CASE
 Question 1
 they don't show the same results, the first shows the old table,
 while the second shows the new one after editing it, 
@@ -9,3 +10,5 @@ Question 2
 after committing , now both terminals show same results
 
 Question 3
+and same happened while updating the balance in two different terminls without committing any changes , 
+so the second terminal couldn't see the changes happened to the first
