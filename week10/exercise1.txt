@@ -6,3 +6,6 @@ and this is because we haven't committed the changes we did in the second termin
 
 
 Question 2
+after committing , now both terminals show same results
+
+Question 3
