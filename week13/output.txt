@@ -1,0 +1,10 @@
+Redis<ConnectionPool<Connection<host=redis-12951.c251.east-us-mz.azure.cloud.redislabs.com,port=12951,db=0>>>
+Contents of the Redis  in descending order:
+{b'1': b'{"first_name": "Jane", "last_name": "Doe"}', b'2': b'{"first_name": "John", "last_name": "Doe"}'
+, b'3': b'{"first_name": "Jane", "last_name": "Smith"}', b'4': b'{"first_name": "John", "last_name": "Smith"}',
+b'5': b'{"first_name": "Jane", "last_name": "Jones"}', b'6': b'{"first_name": "John", "last_name": "Jones"}'}
+Contents of the Redis in descending order:
+{b'1': b'{"first_name": "Jane", "last_name": "Doe"}', b'2': b'{"first_name": "John", "last_name": "Doe"}'
+, b'3': b'{"first_name": "Jane", "last_name": "Smith"}', b'4': b'{"first_name": "John", "last_name": "Smith"}',
+b'5': b'{"first_name": "Jane", "last_name": "Jones"}', b'6': b'{"first_name": "John", "last_name": "Jones"}'}
+
